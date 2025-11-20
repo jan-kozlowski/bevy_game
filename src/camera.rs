@@ -1,7 +1,7 @@
 use std::f32::consts::PI;
 
 use bevy::{
-    input::{keyboard::KeyboardInput, mouse::AccumulatedMouseMotion}, 
+    input::mouse::AccumulatedMouseMotion, 
     prelude::*,
     window::{CursorGrabMode, CursorOptions}
 };
@@ -37,7 +37,7 @@ impl Default for CameraController {
             movement_input: Vec2::default(), 
             camera_input: Vec2::default(), 
             sensitivity: 0.1,
-            movement_speed: 15.
+            movement_speed: 50.
         }
     }
 }
@@ -46,7 +46,7 @@ fn create_camera(mut commands: Commands) {
 
     commands.spawn((
         Camera3d::default(),
-        Transform::from_xyz(2.5, 4.5, 18.0).looking_at(Vec3::ZERO, Vec3::Y),
+        Transform::from_xyz(0., 5., 0.).looking_at(Vec3::ZERO, Vec3::Y),
         CameraController::default()
     ));
 }
